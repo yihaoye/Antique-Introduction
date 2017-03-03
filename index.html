@@ -40,7 +40,10 @@
 
 function loadWiki(page) {
 	$.getJSON("https://raw.githubusercontent.com/wiki/yihaoye/Wikimuseums/"+page+".md", function(data) {
-	    document.getElementById("content").innerHTML = data;
+		var data_string = data.toString();
+	    document.getElementById("content").innerHTML = data_string;
+	    console.log(data);
+	    console.log(data_string);
 	});
 }
 
