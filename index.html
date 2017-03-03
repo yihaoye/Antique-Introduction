@@ -21,11 +21,11 @@
       <h3>Column 1</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <button type="button" onclick="loadWiki('Search-Map:-Museum-to-Collection')">Get Search Map</button>
     </div>
     <div class="col-sm-4">
       <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <p id="content"></p>
     </div>
     <div class="col-sm-4">
       <h3>Column 3</h3>        
@@ -34,6 +34,21 @@
     </div>
   </div>
 </div>
+
+
+<script>
+
+function loadWiki(page) {
+	$.getJSON("https://raw.githubusercontent.com/wiki/yihaoye/Wikimuseums/"+page+".md", function(data) {
+	    document.getElementById("content").innerHTML = data;
+	});
+}
+
+function process(d){
+	document.getElementById("content").innerHTML = d;
+}
+
+</script>
 
 </body>
 </html>
