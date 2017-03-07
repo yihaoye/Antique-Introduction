@@ -1,82 +1,70 @@
 <!DOCTYPE html>
 <html manifest="cache.manifest">
-<head>
-  <title>Wikimuseum</title>
+	<head>
+		<title>Wikimuseums</title>
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-	<!-- iPhone 5 -->
-	<link href="/defaults/apple-touch-startup-image-640x1096.png"
-	      media="(device-width: 320px) and (device-height: 568px)"
-	      rel="apple-touch-startup-image">
-	<!-- iPhone 6 -->
-	<link href="/defaults/apple-touch-startup-image-750x1294.png"
-	      media="(device-width: 375px) and (device-height: 667px)"
-	      rel="apple-touch-startup-image">
-	<!-- iPhone 6 Plus Portrait -->
-	<link href="/defaults/apple-touch-startup-image-1242x2148.png"
-	      media="(device-width: 414px) and (device-height: 736px)"
-	      rel="apple-touch-startup-image">
-	<!-- iPad Portrait -->
-	<link href="/defaults/apple-touch-startup-image-1536x2008.png"
-	      media="(device-width: 768px) and (device-height: 1024px)"
-	      rel="apple-touch-startup-image">
-	<!-- iPad Landscape -->
-	<link href="/defaults/apple-touch-startup-image-2048x1496.png"
-	      media="(device-width: 1024px) and (device-height: 768px)"
-	      rel="apple-touch-startup-image">
+		<!-- iPhone 5 -->
+		<link href="/defaults/apple-touch-startup-image-640x1096.png"
+		      media="(device-width: 320px) and (device-height: 568px)"
+		      rel="apple-touch-startup-image">
+		<!-- iPhone 6 -->
+		<link href="/defaults/apple-touch-startup-image-750x1294.png"
+		      media="(device-width: 375px) and (device-height: 667px)"
+		      rel="apple-touch-startup-image">
+		<!-- iPhone 6 Plus Portrait -->
+		<link href="/defaults/apple-touch-startup-image-1242x2148.png"
+		      media="(device-width: 414px) and (device-height: 736px)"
+		      rel="apple-touch-startup-image">
+		<!-- iPad Portrait -->
+		<link href="/defaults/apple-touch-startup-image-1536x2008.png"
+		      media="(device-width: 768px) and (device-height: 1024px)"
+		      rel="apple-touch-startup-image">
+		<!-- iPad Landscape -->
+		<link href="/defaults/apple-touch-startup-image-2048x1496.png"
+		      media="(device-width: 1024px) and (device-height: 768px)"
+		      rel="apple-touch-startup-image">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="icon" href="http://icons.iconarchive.com/icons/sykonist/popular-sites/256/Wikipedia-icon.png">
 
-<div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      <button type="button" onclick="loadWiki('Search-Map:-Museum-to-Collection')">Get Search Map</button>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p id="content"></p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-  </div>
-</div>
+	</head>
+	<body>
+
+	<div id="home"></div>
+	<div id="map">
+		<div class="iframes">
+            	<iframe class="" src="map.html" height="500px" width="1100px" style="border:none;"></iframe>
+      	</div>
+	</div>
 
 
-<script>
-
-function loadWiki(page) {
-	$.getJSON("https://raw.githubusercontent.com/wiki/yihaoye/Wikimuseums/"+page+".md", function(data) {
-		var data_string = data.toString();
-	    document.getElementById("content").innerHTML = data_string;
-	    console.log(data);
-	    console.log(data_string);
+	<script>
+	$( document ).ready(function() {
+		$("#home").load("home.html"); 
+		//$("#home").load("map.html");
 	});
-}
 
-function process(d){
-	document.getElementById("content").innerHTML = d;
-}
+	function loadWiki(page) {
+		$.getJSON("https://raw.githubusercontent.com/wiki/yihaoye/Wikimuseums/"+page+".md", function(data) {
+			var data_string = data.toString();
+		    document.getElementById("content").innerHTML = data_string;
+		    console.log(data);
+		    console.log(data_string);
+		});
+	}
 
-</script>
+	function process(d){
+		document.getElementById("content").innerHTML = d;
+	}
 
-</body>
+	</script>
+
+	</body>
 </html>
