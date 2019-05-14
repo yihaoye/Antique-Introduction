@@ -12,3 +12,10 @@ https://medium.freecodecamp.org/get-sheet-done-using-google-spreadsheets-as-your
 https://apievangelist.com/2017/01/23/no-database-behind-an-api-and-just-using-files-stored-on-github/  
 https://dzone.com/articles/using-github-repos-and-jekyll-as-a-data-store  
 https://github.com/mapbox/hubdb  
+
+4. React render markdown directly?  
+https://github.com/rexxars/react-markdown  
+
+5. Text to speech solution?  
+https://aws.amazon.com/blogs/machine-learning/build-your-own-text-to-speech-applications-with-amazon-polly/  
+https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API  
